@@ -1,7 +1,9 @@
 package model;
 
-// Represents one row of the opcode table
 import java.util.Set;
+
+
+// Represents one row of the opcode table
 
 public class Instruction {
     private final String mnemonic;
