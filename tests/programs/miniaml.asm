@@ -1,0 +1,6 @@
+COPY    START   1000
+FIRST   LDA     VALUE
+        STA     RESULT
+VALUE   WORD    5
+RESULT  RESW    1
+        END     FIRST

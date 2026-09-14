@@ -135,6 +135,17 @@ Each test should have checked-in source, expected object program, and expected k
 
 For tests 1-5, compare generated `.obj` files exactly against expected files. For test 6, compare expected diagnostic codes/messages and confirm no invalid object code is silently emitted. Add focused unit tests for parsing, numeric/hex conversion, each instruction format, and text-record splitting.
 
+
+### Baseline test programs
+
+Because official test programs have not been provided, the project will use temporary local smoke tests during early development:
+
+- `tests/programs/minimal.asm` - primary parser and Pass 1 smoke test
+- `tests/programs/comments.asm` - comments and blank-line parsing
+- `tests/programs/instructions.asm` - opcode and register table validation
+
+Official six-program testing is deferred until sample programs or instructor requirements are provided.
+
 ## 6. Timeline and milestones
 
 Assumes project work begins the week of **September 14, 2026** and is submitted in December. The last week is intentionally reserved for contingency and submission work.
