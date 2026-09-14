@@ -44,3 +44,43 @@
 //             registerTable.contains("Q"));
 //     }
 // }
+
+
+
+import model.IntermediateLine;
+import model.Literal;
+import model.SourceLine;
+import model.Symbol;
+
+public class Main {
+    public static void main(String[] args) {
+        SourceLine sourceLine = new SourceLine(
+                1,
+                "FIRST   LDA     VALUE",
+                "FIRST",
+                "LDA",
+                "VALUE",
+                null,
+                false,
+                false);
+
+        IntermediateLine intermediateLine =
+                new IntermediateLine(sourceLine, 0x1000);
+
+        Symbol symbol = new Symbol("FIRST", 0x1000, true, 1);
+
+        Literal literal = new Literal(
+                "=C'EOF'",
+                new byte[] { 'E', 'O', 'F' });
+
+        System.out.printf(
+                "%s at %04X%n",
+                symbol.getName(),
+                intermediateLine.getAddress());
+
+        System.out.printf(
+                "%s length=%d%n",
+                literal.getSpelling(),
+                literal.getLength());
+    }
+}

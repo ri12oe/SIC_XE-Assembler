@@ -34,6 +34,7 @@ public class SourceLine {
             this.originalText = originalText;
             this.label = label;
             this.operation = operation;
+            this.operand = operand;
             this.comment = comment;
             this.blank = blank;
             this.commentOnly = commentOnly;
