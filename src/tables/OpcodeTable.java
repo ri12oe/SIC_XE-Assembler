@@ -7,9 +7,11 @@ import java.util.Set;
 import model.Instruction;
 
 public class OpcodeTable {
+    // store the data structures
     private final Map<String, Instruction> instructions = new HashMap<>();
 
     public OpcodeTable() {
+        //  add("mnemonic", opcode, vaild formats)
         add("ADD", 0x18, Set.of(3,4));
         add("ADDF", 0x58, Set.of(3,4));
         add("ADDR", 0x90, Set.of(2));
@@ -82,6 +84,7 @@ public class OpcodeTable {
     }
 
     private void add(String mnemonic, int opcode, Set<Integer> formats) {
+        // build an object to store it in the map
         instructions.put(
             mnemonic,
             new Instruction(mnemonic, opcode, formats)
@@ -89,6 +92,7 @@ public class OpcodeTable {
     }
 
     public Optional<Instruction> find (String mnemonic) {
+        // trims whitspace, converts letters, return optional
         if (mnemonic == null) {
             return Optional.empty();
         }
@@ -98,6 +102,7 @@ public class OpcodeTable {
     }
     
     public boolean contains(String mnemonic) {
+        // to check if valid
         return find(mnemonic).isPresent();
     }
 }
